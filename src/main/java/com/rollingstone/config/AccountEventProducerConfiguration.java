@@ -21,7 +21,7 @@ public class AccountEventProducerConfiguration {
 	@Value("${sales-order.queue.name}")
 	private String accountQueueName;
 	
-	@Value("${sales-order.routing.name.key}")
+	@Value("${sales-order.routing.key}")
 	private String accountRoutingKeyName;
 	
 	@Bean
