@@ -15,13 +15,13 @@ import org.springframework.messaging.handler.annotation.support.DefaultMessageHa
 @Configuration
 public class AccountEventProducerConfiguration {
 
-	@Value("${account.exchange.name}")
+	@Value("${sales-order.exchange.name}")
 	private String accountExchangeName;
 	
-	@Value("${account.queue.name}")
+	@Value("${sales-order.queue.name}")
 	private String accountQueueName;
 	
-	@Value("${account.routing.name.key}")
+	@Value("${sales-order.routing.name.key}")
 	private String accountRoutingKeyName;
 	
 	@Bean
