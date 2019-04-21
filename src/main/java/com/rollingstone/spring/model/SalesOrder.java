@@ -96,14 +96,14 @@ public class SalesOrder {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "SALES_DATE", nullable = false, unique = false, length = 10)
-	private String salesDate;
+	private Date salesDate;
 	
 	@Column(name = "SHIPPING_METHOD", nullable = false)
 	private String shippingMethod;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "ESTIMATED_DELIVERY_DATE", nullable = false, unique = false, length = 10)
-	private String estimatedDeliveryDate;
+	private Date estimatedDeliveryDate;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "EMPLOYEE_ID")
@@ -148,11 +148,11 @@ public class SalesOrder {
 		this.specialInstruction = specialInstruction;
 	}
 
-	public String getSalesDate() {
+	public Date getSalesDate() {
 		return salesDate;
 	}
 
-	public void setSalesDate(String salesDate) {
+	public void setSalesDate(Date salesDate) {
 		this.salesDate = salesDate;
 	}
 
@@ -164,11 +164,11 @@ public class SalesOrder {
 		this.shippingMethod = shippingMethod;
 	}
 
-	public String getEstimatedDeliveryDate() {
+	public Date getEstimatedDeliveryDate() {
 		return estimatedDeliveryDate;
 	}
 
-	public void setEstimatedDeliveryDate(String estimatedDeliveryDate) {
+	public void setEstimatedDeliveryDate(Date estimatedDeliveryDate) {
 		this.estimatedDeliveryDate = estimatedDeliveryDate;
 	}
 
@@ -196,8 +196,8 @@ public class SalesOrder {
 		this.salesOrderDetails = salesOrderDetails;
 	}
 
-	public SalesOrder(long id, String orderNumber, float totalOrderAmount, String specialInstruction, String salesDate,
-			String shippingMethod, String estimatedDeliveryDate, Employee employee, Account account,
+	public SalesOrder(long id, String orderNumber, float totalOrderAmount, String specialInstruction, Date salesDate,
+			String shippingMethod, Date estimatedDeliveryDate, Employee employee, Account account,
 			Set<SalesOrderDetails> salesOrderDetails) {
 		super();
 		this.id = id;
