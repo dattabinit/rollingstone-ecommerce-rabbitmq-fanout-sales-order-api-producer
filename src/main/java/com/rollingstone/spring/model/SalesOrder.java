@@ -23,7 +23,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@SqlResultSetMapping(name = "salesordermapping", classes = {
+@SqlResultSetMapping(name = "SalesOrderMapping", classes = {
 		@ConstructorResult(targetClass = SalesOrderDTO.class, columns  = {
 				@ColumnResult(name = "id", type = Long.class),
 				@ColumnResult(name = "order_number"),
@@ -56,7 +56,7 @@ import javax.persistence.TemporalType;
 		})
 })
 @NamedNativeQueries({
-	@NamedNativeQuery(name = "SalesOrderDaoRepository.getSalesOrderByid",
+	@NamedNativeQuery(name = "SalesOrderDaoRepository.getSalesOrderByID",
 			query = " select so.id, so.order_number, so.shipping_method, so.estimated_delivery_date, so.special_instruction, " + 
 
 					" sod.item_quantity, itm.item_upc_code, itm.item_name, itm.color, itm.pattern, itm.size, itm.shipped_by, " +
@@ -73,7 +73,7 @@ import javax.persistence.TemporalType;
 
 					" and so.employee_id = emp.id and acc.id = addr.account_id and acc.user_profile_id = usr.id and so.id = :id", 
 
-					   resultSetMapping = "salesordermapping" )
+					   resultSetMapping = "SalesOrderMapping" )
 
 })
 

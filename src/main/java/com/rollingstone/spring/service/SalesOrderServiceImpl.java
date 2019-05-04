@@ -41,7 +41,7 @@ public class SalesOrderServiceImpl implements SalesOrderService {
 	public SalesOrderDTO getSalesOrder(long id) {
 		logger.info("Inside getSalesOrder");
 		
-		SalesOrderDTO salesOrderDTO = salesOrderDaoRepository.getSalesOrderbyId(id);
+		SalesOrderDTO salesOrderDTO = salesOrderDaoRepository.getSalesOrderByID(id);
 		
 		return salesOrderDTO;
 	}

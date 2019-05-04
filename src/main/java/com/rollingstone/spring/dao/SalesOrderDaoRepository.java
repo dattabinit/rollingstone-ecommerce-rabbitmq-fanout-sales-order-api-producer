@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
+import com.rollingstone.spring.model.AccountDTO;
 import com.rollingstone.spring.model.SalesOrder;
 import com.rollingstone.spring.model.SalesOrderDTO;
 
@@ -13,6 +14,7 @@ public interface SalesOrderDaoRepository extends PagingAndSortingRepository<Sale
 
 	Page<SalesOrder> findAll(Pageable pageable);
 	
-	@Query(name = "SalesOrderDaoRepository.getSalesOrderbyId", nativeQuery = true)
-	SalesOrderDTO getSalesOrderbyId(@Param("id") long id);
+	@Query(name = "SalesOrderDaoRepository.getSalesOrderByID", nativeQuery = true)
+	SalesOrderDTO getSalesOrderByID(@Param("id") long id);
+	
 }
