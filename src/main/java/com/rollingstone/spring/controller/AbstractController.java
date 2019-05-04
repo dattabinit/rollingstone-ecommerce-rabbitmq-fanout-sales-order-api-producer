@@ -42,8 +42,8 @@ public abstract class AbstractController implements ApplicationEventPublisherAwa
 	}
 	
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	@ExceptionHandler(HTTP400Exception.class)
-	public @ResponseBody RestAPIExceptionInfo handleResourceNotFoundException(HTTP400Exception ex, WebRequest request, HttpServletResponse response) {
+	@ExceptionHandler(HTTP404Exception.class)
+	public @ResponseBody RestAPIExceptionInfo handleResourceNotFoundException(HTTP404Exception ex, WebRequest request, HttpServletResponse response) {
 		log.info("Received Resource Not FoundException Info" + ex.getLocalizedMessage());
 		http404ExceptionCounter.increment();
 		return new RestAPIExceptionInfo(ex.getLocalizedMessage(), "This Requested Resource Was Not found");
