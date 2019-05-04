@@ -32,6 +32,14 @@ public class User {
 		this.registrationDate = registrationDate;
 	}
 	
+	public User(long id, String firstName, String lastName,	String accountNumber) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.accountNumber = accountNumber;
+	}
+	
 	public User() {
 		super();
 	

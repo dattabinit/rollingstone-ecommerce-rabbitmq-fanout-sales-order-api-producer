@@ -147,6 +147,15 @@ public class Employee {
 		this.addresses = addresses;
 		this.contacts = contacts;
 	}
+	
+	public Employee(long id, String employeeNumber, String employeeName, String firstName, String lastName) {
+		super();
+		this.id = id;
+		this.employeeNumber = employeeNumber;
+		this.employeeName = employeeName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+        }
 
 	public Employee() {
 		super();
