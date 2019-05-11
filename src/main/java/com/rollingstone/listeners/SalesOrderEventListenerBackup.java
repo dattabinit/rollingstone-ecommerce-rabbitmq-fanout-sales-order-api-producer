@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.rollingstone.events.SalesOrderEvent;
 
-@Component
+// @Component
 public class SalesOrderEventListenerBackup {
 
 	private static final Logger log  = LoggerFactory.getLogger(SalesOrderEventListenerBackup.class);
