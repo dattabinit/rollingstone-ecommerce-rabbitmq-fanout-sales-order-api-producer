@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory;
 
-@Configuration
+// @Configuration
 public class AccountEventProducerConfiguration {
 
 	@Value("${sales-order.exchange.name}")

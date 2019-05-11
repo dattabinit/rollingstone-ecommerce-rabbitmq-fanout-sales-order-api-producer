@@ -8,8 +8,5 @@ spring:
 sales-order:
   exchange:
     name: sales-order-exchange
-     
-  queue:
-    name: sales-order-queue
   routing: 
     key: sales-order-routing-key
