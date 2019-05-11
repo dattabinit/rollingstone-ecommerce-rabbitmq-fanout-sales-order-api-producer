@@ -2,9 +2,9 @@ package com.rollingstone.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.Exchange;
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +26,7 @@ public class AccountEventProducerConfiguration {
 	private String accountRoutingKeyName;
 	
 	@Bean
-	public FanoutExchange getAccountTopicExchange() {
+	public FanoutExchange getAccountFanoutExchange() {
 		return new FanoutExchange(accountExchangeName);
 	}
 	
@@ -37,7 +37,12 @@ public class AccountEventProducerConfiguration {
 	
 	@Bean
 	public Binding bindAccountQueueForExchange() {
-		return BindingBuilder.bind(getAccountQueue()).to(getAccountTopicExchange()).with(accountRoutingKeyName);
+		// return BindingBuilder.bind(getAccountQueue()).to(getAccountFanoutExchange()).with("*");
+       // return  BindingBuilder.bind(getAccountQueue()).to(getAccountFanoutExchange()).with("*").noargs();
+		Exchange fanoutExchange = new FanoutExchange(accountExchangeName);
+        return BindingBuilder.bind(getAccountQueue()).to(fanoutExchange).with("*").noargs();
+
+
 	}
 	
 	@Bean
